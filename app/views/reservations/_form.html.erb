@@ -56,6 +56,7 @@
 				$.each(data, function(arrId, arrValue){
 					for(var d = new Date(arrValue.start_date); d <= new Date(arrValue.end_date); d.setDate(d.getDate() +1)){
 						unavailableDates.push($.datepicker.formatDate('d-m-yy', d));
+						console.log(d.getDate() + 1);
 					}
 				});
 				$('#reservation_start_date').datepicker({
