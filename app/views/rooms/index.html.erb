@@ -15,7 +15,7 @@
 				<% @rooms.each do |room| %>
 					<div class="row">
 						<div class="col-md-2">
-							<%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %>
+							<%= image_tag room.show_first_photo(:thumb) %>
 						</div>
 						<div class="col-md-7">
 							<h4><%= room.listing_name %></h4>
