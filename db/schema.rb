@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114222709) do
+ActiveRecord::Schema.define(version: 20161115005255) do
 
   create_table "conversations", force: :cascade do |t|
-    t.integer  "send_id"
+    t.integer  "sender_id"
     t.integer  "recipient_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
