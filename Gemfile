@@ -27,6 +27,9 @@ gem 'paperclip'
 
 gem 'geocoder'
 
+gem 'private_pub'
+gem 'thin'
+
 gem 'jquery-ui-rails'
 
 group :development, :test do
