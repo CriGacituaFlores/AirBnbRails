@@ -24,4 +24,8 @@ class Room < ActiveRecord::Base
       self.photos[0].image.url(size)
     end
   end
+
+  def average_rating
+    reviews.count == 0 ? 0: reviews.average(:star).round(2)
+  end
 end
