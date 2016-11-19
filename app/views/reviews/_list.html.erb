@@ -1,0 +1,32 @@
+<% if @reviews.count == 0 %>
+	<div class="text-center">
+		<h4>Aqui no hay reviews ahora</h4>
+	</div>
+<% else %>
+
+	<% @reviews.order("id desc").each do |r| %>
+		<hr>
+
+		<div class="row">
+			<div class="col-md-1">
+			<%= image_tag avatar_url(r.user), class: 'img-circle avatar-medium' %>
+			</div>
+			<div class="col-md-11">
+				<div>
+					<strong><%= r.user.fullname %> <%= r.star %></strong>
+					<span class="pull-right">
+					<%= link_to "Eliminar mi review", [@room, r], method: :delete, data: {confirm: "Estas seguro?"} if current_user && current_user == r.user %>
+					</span>
+				</div>
+
+				<div>
+					<%= r.created_at.strftime("%v") %>
+				</div>
+				<div>
+					<%= r.comment %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+
+<% end %>
