@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
 	def create
-		@revirew = current_user.reviews.create(review_params)
+		@review = current_user.reviews.create(review_params)
 		redirect_to @review.room
 	end
 
