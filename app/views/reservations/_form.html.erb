@@ -78,8 +78,9 @@
 						var date = $(this).datepicker('getDate');
 						var start = $("#reservation_start_date").datepicker('getDate');
 						var dayDiff = Math.ceil((date - start) / (1000 * 60 * 60 * 24) + 1);
-						console.log(dayDiff);
+						var totalPrice = dayDiff * 20;
 						$("#reservation_days").html(dayDiff);
+						$("#reservation_sum").html(totalPrice);
 						$('.reservation-table').css('display','block');
 						$('#reservation_start_date').datepicker("option", "maxDate", selected);
 					}
