@@ -13,12 +13,12 @@
 
 	<%= f.hidden_field :room_id, value: @room.id %>
 	<%= f.hidden_field :price, value: @room.price %>
-	<%= f.hidden_field :total, id: 'reservation_total' %>
+	<%= f.hidden_field :total, value: 20 %>
 
-	<div id="preview" style="display:none;">
+	<div id="preview" >
 		<h4><span id="message"></span></h4>
 
-		<table class="reservation-table">
+		<table class="reservation-table" style="display: none;">
 			<tbody>
 				<tr>
 					<td>Dia(s)</td>
@@ -75,6 +75,12 @@
 					maxDate: '3m',
 					beforeShowDay: unavailable,
 					onSelect: function(selected) {
+						var date = $(this).datepicker('getDate');
+						var start = $("#reservation_start_date").datepicker('getDate');
+						var dayDiff = Math.ceil((date - start) / (1000 * 60 * 60 * 24) + 1);
+						console.log(dayDiff);
+						$("#reservation_days").html(dayDiff);
+						$('.reservation-table').css('display','block');
 						$('#reservation_start_date').datepicker("option", "maxDate", selected);
 					}
 				});
